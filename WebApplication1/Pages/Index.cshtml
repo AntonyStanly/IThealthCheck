@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <form method="post">
+        <div>
+            <label for="categories">Choose a category:</label>
+            <select asp-for="@Model.Model.Category"  onchange="enableRating()" id="category">
+                <option value="printer">Printer</option>
+                <option value="Computer">Computer</option>
+                <option value="wireless">Wireless</option>
+                <option value="tablet">Tablet</option>
+                <option value="desk phone">Desk Phone</option>
+                <option value="copier">Copier</option>
+                <option value="scan gun">Scan Gun</option>
+            </select>
+            <br>
+            <select asp-for="@Model.Model.Rating" onchange="enabletextbox()" id="rating">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+            <input asp-for="@Model.Model.VisualDescription" type="text" id="feedbackbox" style="height:100px;">
+            <br>
+            <input type="submit" value="Submit">
+
+            <script type="text/javascript">
+                function enableRating() {
+                    if (document.getElementById('category').value != '')
+                        document.getElementById('rating').disabled = false;
+                    else
+                        document.getElementById('rating').disabled = true;
+                }
+                function enabletextbox() {
+                    if (document.getElementById('rating').value != '4')
+                        document.getElementById('feedbackbox').disabled = false;
+                    else
+                        document.getElementById('feedbackbox').disabled = true;
+                }
+
+            </script>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="categories">Choose a category:</label>
+            <select onchange="enableRating()" name="category" id="category">
+                <option value="printer">Printer</option>
+                <option value="Computer">Computer</option>
+                <option value="wireless">Wireless</option>
+                <option value="tablet">Tablet</option>
+                <option value="desk phone">Desk Phone</option>
+                <option value="copier">Copier</option>
+                <option value="scan gun">Scan Gun</option>
+            </select>
+            <br>
+            <select onchange="enabletextbox()" name="rating" id="rating">
+                <option value="rating0">0</option>
+                <option value="rating1">1</option>
+                <option value="rating2">2</option>
+                <option value="rating3">3</option>
+                <option value="rating4">4</option>
+            </select>
+            <br>
+            <input type="text" id="feedbackbox" name="feedbackbox" style="height:100px;"><br>
+            <input type="submit" value="Submit" asp-page-handler="Submit">
+
+            <script type="text/javascript">
+                function enableRating() {
+                    if (document.getElementById('category').value != '')
+                        document.getElementById('servername').disabled = false;
+                    else
+                        document.getElementById('servername').disabled = true;
+                }
+                function enabletextbox() {
+                    if (document.getElementById('rating').value != 'rating4')
+                        document.getElementById('feedbackbox').disabled = false;
+                    else
+                        document.getElementById('feedbackbox'). = true;
+                }
+
+            </script>
+        </div>
+    </form>
+</body>
+</html>
